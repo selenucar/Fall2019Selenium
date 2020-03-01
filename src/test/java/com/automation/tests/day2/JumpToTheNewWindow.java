@@ -25,9 +25,22 @@ public class JumpToTheNewWindow {
         // getWindowHandles() - returns ID's of all currently opened windows
         // Set - doesn't allow duplicates
         Set<String> windowHandles = driver.getWindowHandles();
+
+
         System.out.println(windowHandles);
+        System.out.println("BEFORE SWITCH : " + driver.getCurrentUrl());
 
+        // since we have all windows
+        // and we know ID of original window
+        // we can say switch to something that is not equals to old window ID
+        for (String windowId: windowHandles){
+            // if it's not an old window, then switch
+            if (!windowId.equals(windowHandle)){
+                driver.switchTo().window(windowId);
+            }
+        }
+        System.out.println("AFTER SWITCH : " + driver.getCurrentUrl());
 
-
+        driver.close();
     }
 }
