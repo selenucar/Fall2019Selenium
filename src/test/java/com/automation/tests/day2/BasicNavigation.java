@@ -35,6 +35,8 @@ public class BasicNavigation {
         }
 
         driver.navigate().to("http://amazon.com"); // go to another website within the same window
+        Thread.sleep(3000); // for demo, wait 3 seconds
+
         if (driver.getTitle().toLowerCase().contains("amazon")){
             System.out.println("TEST PASSED!");
         }else {
@@ -42,7 +44,16 @@ public class BasicNavigation {
         }
         // come back to google
         driver.navigate().back();
+        Thread.sleep(3000); // for demo, wait 3 seconds
+
         verifyEquals(driver.getTitle(),"Google");
+        // move forward in the browser history
+        // again, going to amazon
+        driver.navigate().forward();
+        Thread.sleep(3000); // for demo, wait 3 seconds
+
+        System.out.println("Title: "+ driver.getTitle());
+        // driver.getTitle() - returns page title of the page that is currently opened
 
 
 
@@ -51,6 +62,13 @@ public class BasicNavigation {
         // browser cannot close itself
 
     }
+
+    /**
+     * Check if to strings are same. If print TEST PASSED! message.
+     * Otherwise, print TEST FAILED message
+     * @param arg1
+     * @param arg2
+     */
     public static void verifyEquals(String arg1, String arg2){
         if (arg1.equals(arg2)){
             System.out.println("TEST PASSED!");
