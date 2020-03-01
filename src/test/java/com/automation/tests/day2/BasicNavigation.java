@@ -46,6 +46,8 @@ public class BasicNavigation {
         driver.navigate().back();
         Thread.sleep(3000); // for demo, wait 3 seconds
 
+        // checking if page title is equals to google
+        // getTitle() - return page title
         verifyEquals(driver.getTitle(),"Google");
         // move forward in the browser history
         // again, going to amazon
@@ -54,9 +56,13 @@ public class BasicNavigation {
 
         System.out.println("Title: "+ driver.getTitle());
         // driver.getTitle() - returns page title of the page that is currently opened
+        // to get URL
+        System.out.println("URL: " + driver.getCurrentUrl());
+        driver.navigate().refresh(); // to reload page
+        Thread.sleep(3000); // for demo, wait 3 seconds
 
 
-
+        // driver.navigate().to() = driver.get()
         // must be at the end
         driver.close();// to close browser
         // browser cannot close itself
