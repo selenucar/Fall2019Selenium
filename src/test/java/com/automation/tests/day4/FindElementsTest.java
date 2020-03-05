@@ -22,6 +22,17 @@ public class FindElementsTest {
 
         for (WebElement link : links){
             System.out.println(link.getText());
+            System.out.println(link.getAttribute("href"));
+            System.out.println();
+        }
+        for(int i=1; i<links.size();i++){ // with 1 we will skip 1st link
+            links.get(i).click();
+//            Thread.sleep(2000);
+            driver.navigate().back();
+//            Thread.sleep(2000);
+            // refresh list
+            driver.findElements(By.tagName("a"));
+
         }
 
 
