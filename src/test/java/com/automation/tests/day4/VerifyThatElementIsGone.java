@@ -37,7 +37,8 @@ public class VerifyThatElementIsGone {
         Thread.sleep(2000);
         // to find all buttons
         // make sure that you use findElements <----- ending is important
-
+        // List excepts duplicated that's why we use list method
+        // List works insertion (to be able to in order)
         List<WebElement> buttons = driver.findElements(By.tagName("button"));
         for (WebElement button : buttons){
             // click on every button
